@@ -1,0 +1,8 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    api kotlinLibs.stdlib
+    api reactivexLibs.rxjava
+    implementation otherLibs.threetenabp
+}

@@ -1,0 +1,21 @@
+dependencies {
+    implementation project(path: ':domain')
+
+    // Cache
+    implementation roomLibs.core
+    kapt roomLibs.compiler
+    implementation roomLibs.rxjava
+
+    // DI
+    implementation koinLibs.android
+
+    // ReactiveX
+    implementation reactivexLibs.rxjava
+    implementation reactivexLibs.rxandroid
+    implementation reactivexLibs.rxkotlin
+    implementation reactivexLibs.replayingshare
+
+    // other
+    implementation otherLibs.timber
+    implementation otherLibs.threetenabp
+}

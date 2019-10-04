@@ -1,0 +1,26 @@
+android {
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    // Android
+    implementation androidxLibs.appcompat
+    implementation androidxLibs.annotation
+    implementation androidxLibs.recyclerview
+
+    implementation androidktxLibs.core
+    implementation androidktxLibs.fragment
+
+    // Navigation
+    implementation navigationLibs.ui
+
+    // ReactiveX
+    implementation reactivexLibs.rxjava
+
+    // other
+    implementation otherLibs.material
+    implementation otherLibs.timber
+    implementation otherLibs.threetenabp
+}
