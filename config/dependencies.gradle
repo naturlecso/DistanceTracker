@@ -25,8 +25,9 @@ ext {
     ]
 
     androidktxLibs = [
-            core     : "androidx.core:core-ktx:1.2.0-alpha04",
-            fragment : "androidx.fragment:fragment-ktx:1.2.0-alpha04"
+            core       : "androidx.core:core-ktx:1.2.0-alpha04",
+            fragment   : "androidx.fragment:fragment-ktx:1.2.0-alpha04",
+            preference : "androidx.preference:preference-ktx:1.1.0"
     ]
 
     androidPlayServicesLibs = [
@@ -62,7 +63,8 @@ ext {
             rxjava         : "io.reactivex.rxjava2:rxjava:2.2.12",
             rxandroid      : "io.reactivex.rxjava2:rxandroid:2.1.1",
             rxkotlin       : "io.reactivex.rxjava2:rxkotlin:2.4.0",
-            replayingshare : "com.jakewharton.rx2:replaying-share:2.1.1"
+            replayingshare : "com.jakewharton.rx2:replaying-share:2.1.1",
+            rxpreferences  : "com.f2prateek.rx.preferences2:rx-preferences:2.0.0"
     ]
 
     otherLibs = [

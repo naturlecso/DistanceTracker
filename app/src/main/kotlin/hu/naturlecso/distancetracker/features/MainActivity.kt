@@ -21,16 +21,22 @@ import android.net.Uri
 import android.provider.Settings
 import com.google.android.material.snackbar.Snackbar
 import hu.naturlecso.distancetracker.BuildConfig
+import hu.naturlecso.distancetracker.data.service.NotificationService
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
     private val navigator: Navigator by inject()
+    private val notificationService: NotificationService by inject()
 
     private lateinit var disposable: Disposable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        notificationService.notificationIntent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
 
         val navController = findNavController(R.id.nav_host_fragment)
         nav_view.setupWithNavController(navController)

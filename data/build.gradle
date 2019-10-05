@@ -1,6 +1,10 @@
 dependencies {
     implementation project(path: ':domain')
 
+    // Android
+    implementation androidPlayServicesLibs.location
+    implementation androidktxLibs.preference
+
     // Cache
     implementation roomLibs.core
     kapt roomLibs.compiler
@@ -14,6 +18,7 @@ dependencies {
     implementation reactivexLibs.rxandroid
     implementation reactivexLibs.rxkotlin
     implementation reactivexLibs.replayingshare
+    implementation reactivexLibs.rxpreferences
 
     // other
     implementation otherLibs.timber

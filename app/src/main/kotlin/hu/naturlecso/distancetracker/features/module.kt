@@ -7,7 +7,7 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val featureModule = module {
-    viewModel { TripControlViewModel() }
+    viewModel { TripControlViewModel(get(), get()) }
     viewModel { TripListViewModel() }
     viewModel { SettingsViewModel() }
 }

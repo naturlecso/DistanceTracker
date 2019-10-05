@@ -1,1 +1,13 @@
-<manifest package="hu.naturlecso.distancetracker.data" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="hu.naturlecso.distancetracker.data" >
+
+    <application>
+        <receiver android:name=".service.LocationUpdatesBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="hu.naturlecso.distancetracker.data.locationupdatespendingintent.action.PROCESS_UPDATES" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
