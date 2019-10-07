@@ -13,6 +13,8 @@
         android:id="@+id/tripList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        bind:items="@{vm.trips}" />
+        bind:items="@{vm.trips}"
+        bind:divider="@{@drawable/divider_trip_list}"
+        bind:showLastDivider="@{true}"/>
 
 </layout>

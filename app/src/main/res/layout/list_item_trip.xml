@@ -19,8 +19,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_marginBottom="@dimen/margin_small"
+            android:textAppearance="?android:attr/textAppearanceListItem"
             bind:distance="@{vm.trip.distance}"
             bind:unit="@{vm.distanceUnit}"
             tools:text="2.45 km"/>
@@ -28,7 +27,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textAppearance="?android:attr/textAppearanceListItemSecondary"
             bind:duration="@{vm.trip}"
             tools:text="Ongoing trip..." />
 

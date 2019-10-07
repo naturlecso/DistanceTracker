@@ -6,7 +6,7 @@ import com.airbnb.lottie.LottieAnimationView
 import hu.naturlecso.distancetracker.R
 import hu.naturlecso.distancetracker.domain.model.DistanceUnit
 import hu.naturlecso.distancetracker.domain.model.Trip
-import org.threeten.bp.format.DateTimeFormatter
+import org.threeten.bp.Duration
 
 private const val METER_TO_KM = 1000
 private const val METER_TO_FT = 0.3048f
@@ -29,13 +29,10 @@ fun LottieAnimationView.bindRunAnimation(animate: Boolean?) {
 fun TextView.bindDuration(trip: Trip?) {
     trip ?: return
 
-    val startTime = trip.startDate.format(DateTimeFormatter.ISO_DATE_TIME)
-    val endTime = trip.endDate?.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME)
-
-    text = if (endTime == null) {
+    text = if (trip.endDate == null) {
         context.getText(R.string.trip_ongoing)
     } else {
-        "$startTime - $endTime"
+        "${Duration.between(trip.startDate, trip.endDate).toMinutes()} min"
     }
 }
 

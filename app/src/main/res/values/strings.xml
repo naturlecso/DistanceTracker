@@ -9,6 +9,8 @@
     <string name="permission_denied_explanation">All the time location permission denied; needed for core functionality.</string>
     <string name="permission_button_settings">Settings</string>
 
+    <string name="control_info">Tap the icon to start the trip!</string>
+
     <string name="trip_ongoing">Ongoing trip…</string>
     <string name="trip_distance_unit_m">m</string>
     <string name="trip_distance_unit_km">km</string>
