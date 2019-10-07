@@ -22,7 +22,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_marginBottom="@dimen/margin_small"
             bind:distance="@{vm.trip.distance}"
-            bind:metric="@{true}"
+            bind:unit="@{vm.distanceUnit}"
             tools:text="2.45 km"/>
 
         <TextView

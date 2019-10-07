@@ -4,8 +4,14 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.airbnb.lottie.LottieAnimationView
 import hu.naturlecso.distancetracker.R
+import hu.naturlecso.distancetracker.domain.model.DistanceUnit
 import hu.naturlecso.distancetracker.domain.model.Trip
 import org.threeten.bp.format.DateTimeFormatter
+
+private const val METER_TO_KM = 1000
+private const val METER_TO_FT = 0.3048f
+private const val METER_TO_MI = 1609.344f
+private const val FT_TO_MI = 5280
 
 @BindingAdapter("animate")
 fun LottieAnimationView.bindRunAnimation(animate: Boolean?) {
@@ -33,21 +39,32 @@ fun TextView.bindDuration(trip: Trip?) {
     }
 }
 
-@BindingAdapter(value = ["distance", "metric"])
-fun TextView.bindDistanceWithUnit(distance: Float?, metric: Boolean) {
+@BindingAdapter(value = ["distance", "unit"])
+fun TextView.bindDistanceWithUnit(distance: Float?, unit: DistanceUnit?) {
     distance ?: return
+    unit ?: return
 
-    val unit = if (metric) {
-        context.getText(R.string.trip_distance_unit_km)
-    } else {
-        context.getText(R.string.trip_distance_unit_mile)
+    text = when (unit) {
+        DistanceUnit.METRIC -> {
+            val km = distance / METER_TO_KM
+
+            if (km < 1) {
+                formatDistance(distance, context.getText(R.string.trip_distance_unit_m).toString())
+            } else {
+                formatDistance(km, context.getText(R.string.trip_distance_unit_km).toString())
+            }
+        }
+        DistanceUnit.IMPERIAL -> {
+            val ft = distance / METER_TO_FT
+
+            if (ft / FT_TO_MI < 1) {
+                formatDistance(ft, context.getText(R.string.trip_distance_unit_ft).toString())
+            } else {
+                val mi = distance / METER_TO_MI
+                formatDistance(mi, context.getText(R.string.trip_distance_unit_mi).toString())
+            }
+        }
     }
-
-    val formattedDistance = if (metric) {
-        distance * 0.001
-    } else {
-        distance * 0.000621
-    }.let { "%.2f".format(it) }
-
-    text = "$formattedDistance $unit"
 }
+
+private fun formatDistance(distance: Float, unit: String) = "%.2f $unit".format(distance)

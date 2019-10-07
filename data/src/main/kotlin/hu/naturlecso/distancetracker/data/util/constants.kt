@@ -8,4 +8,5 @@ object Preferences {
     const val LAST_COORDINATES = "preference_last_coordinates"
     const val ACTUAL_DISTANCE  = "preference_actual_distance"
     const val TRIP_IN_PROGRESS = "preference_trip_in_progress"
+    const val DISTANCE_UNIT = "preference_distance_unit"
 }

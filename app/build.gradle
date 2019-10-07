@@ -29,6 +29,7 @@ dependencies {
 
     implementation androidktxLibs.core
     implementation androidktxLibs.fragment
+    implementation androidktxLibs.preference
 
     implementation lifecycleLibs.extensions
     kapt lifecycleLibs.compiler

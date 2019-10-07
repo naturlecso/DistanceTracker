@@ -8,9 +8,8 @@ import androidx.recyclerview.widget.DiffUtil
 import hu.naturlecso.distancetracker.R
 import hu.naturlecso.distancetracker.common.presentation.BindableRecyclerViewAdapter
 import hu.naturlecso.distancetracker.databinding.ListItemTripBinding
-import hu.naturlecso.distancetracker.domain.model.Trip
 
-class TripAdapter : BindableRecyclerViewAdapter<Trip>() {
+class TripAdapter : BindableRecyclerViewAdapter<TripListItem>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding: ListItemTripBinding = DataBindingUtil.inflate(
@@ -22,10 +21,12 @@ class TripAdapter : BindableRecyclerViewAdapter<Trip>() {
         return ViewHolder(binding)
     }
 
-    override fun getItemViewModel(item: Trip): ViewModel = TripListItemViewModel(item)
+    override fun getItemViewModel(item: TripListItem): ViewModel = TripListItemViewModel(item)
 
-    override val diffCallback: DiffUtil.ItemCallback<Trip> = object : DiffUtil.ItemCallback<Trip>() {
-        override fun areItemsTheSame(oldItem: Trip, newItem: Trip): Boolean = oldItem.id == newItem.id
-        override fun areContentsTheSame(oldItem: Trip, newItem: Trip): Boolean = oldItem == newItem
+    override val diffCallback: DiffUtil.ItemCallback<TripListItem> = object : DiffUtil.ItemCallback<TripListItem>() {
+        override fun areItemsTheSame(oldItem: TripListItem, newItem: TripListItem): Boolean =
+            oldItem.trip.id == newItem.trip.id && oldItem.distanceUnit == newItem.distanceUnit
+        override fun areContentsTheSame(oldItem: TripListItem, newItem: TripListItem): Boolean =
+            oldItem == newItem
     }
 }

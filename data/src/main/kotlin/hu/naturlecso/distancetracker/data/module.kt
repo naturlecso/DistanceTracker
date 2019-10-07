@@ -13,9 +13,11 @@ import hu.naturlecso.distancetracker.data.action.DefaultTripAction
 import hu.naturlecso.distancetracker.data.cache.DistanceTrackerDatabase
 import hu.naturlecso.distancetracker.data.service.LocationUpdatesBroadcastReceiver
 import hu.naturlecso.distancetracker.data.service.NotificationService
+import hu.naturlecso.distancetracker.data.store.DefaultSettingsStore
 import hu.naturlecso.distancetracker.data.store.DefaultTripStore
 import hu.naturlecso.distancetracker.data.util.Actions
 import hu.naturlecso.distancetracker.domain.action.TripAction
+import hu.naturlecso.distancetracker.domain.store.SettingsStore
 import hu.naturlecso.distancetracker.domain.store.TripStore
 import org.koin.dsl.module
 
@@ -49,4 +51,5 @@ val dataModule = module {
 
     // store
     single<TripStore> { DefaultTripStore(get(), get()) }
+    single<SettingsStore> { DefaultSettingsStore(get()) }
 }
