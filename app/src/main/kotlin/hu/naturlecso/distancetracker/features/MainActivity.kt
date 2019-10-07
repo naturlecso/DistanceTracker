@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
                     // TODO start action
                 }
                 else -> Snackbar.make(container, R.string.permission_denied_explanation, Snackbar.LENGTH_INDEFINITE)
-                    .setAction(R.string.settings) {
+                    .setAction(R.string.permission_button_settings) {
                         // Build intent that displays the App settings screen.
                         val intent = Intent().apply {
                             action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS

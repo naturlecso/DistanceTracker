@@ -7,6 +7,10 @@
 
     <string name="permission_rationale">All the time location permission required for core functionality</string>
     <string name="permission_denied_explanation">All the time location permission denied; needed for core functionality.</string>
-    <string name="settings">Settings</string>
+    <string name="permission_button_settings">Settings</string>
+
+    <string name="trip_ongoing">Ongoing trip…</string>
+    <string name="trip_distance_unit_km">km</string>
+    <string name="trip_distance_unit_mile">mile</string>
 
 </resources>

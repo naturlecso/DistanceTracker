@@ -8,6 +8,6 @@ import org.koin.dsl.module
 
 val featureModule = module {
     viewModel { TripControlViewModel(get(), get()) }
-    viewModel { TripListViewModel() }
+    viewModel { TripListViewModel(get()) }
     viewModel { SettingsViewModel() }
 }
